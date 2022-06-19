@@ -4,3 +4,15 @@
 [submodule "src/SpecIFicator.DefaultPlugin"]
 	path = src/SpecIFicator.DefaultPlugin
 	url = https://github.com/oalt/SpecIFicator.DefaultPlugin.git
+[submodule "src/MDD4All.SpecIF.DataModels"]
+	path = src/MDD4All.SpecIF.DataModels
+	url = https://github.com/oalt/MDD4All.SpecIF.DataModels.git
+[submodule "src/MDD4All.SpecIF.DataProvider.MockupDataStream"]
+	path = src/MDD4All.SpecIF.DataProvider.MockupDataStream
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.MockupDataStream.git
+[submodule "src/MDD4All.SpecIF.DataProvider.File"]
+	path = src/MDD4All.SpecIF.DataProvider.File
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.File.git
+[submodule "src/MDD4All.Configuration"]
+	path = src/MDD4All.Configuration
+	url = https://github.com/oalt/MDD4All.Configuration.git
