@@ -16,3 +16,24 @@
 [submodule "src/MDD4All.Configuration"]
 	path = src/MDD4All.Configuration
 	url = https://github.com/oalt/MDD4All.Configuration.git
+[submodule "src/MDD4All.SpecIF.DataModels.RightsManagement"]
+	path = src/MDD4All.SpecIF.DataModels.RightsManagement
+	url = https://github.com/oalt/MDD4All.SpecIF.DataModels.RightsManagement.git
+[submodule "src/MDD4All.SpecIF.DataProvider.MongoDB"]
+	path = src/MDD4All.SpecIF.DataProvider.MongoDB
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.MongoDB.git
+[submodule "src/SpecIFicator.UI.BlazorComponents"]
+	path = src/SpecIFicator.UI.BlazorComponents
+	url = https://github.com/oalt/SpecIFicator.UI.BlazorComponents.git
+[submodule "src/MDD4All.SpecIF.ViewModels"]
+	path = src/MDD4All.SpecIF.ViewModels
+	url = https://github.com/oalt/MDD4All.SpecIF.ViewModels.git
+[submodule "src/MDD4All.SpecIF.DataModels.Manipulation"]
+	path = src/MDD4All.SpecIF.DataModels.Manipulation
+	url = https://github.com/oalt/MDD4All.SpecIF.DataModels.Manipulation.git
+[submodule "src/MDD4All.SpecIF.DataFactory"]
+	path = src/MDD4All.SpecIF.DataFactory
+	url = https://github.com/oalt/MDD4All.SpecIF.DataFactory.git
+[submodule "src/Summernote"]
+	path = src/Summernote
+	url = https://github.com/oalt/Summernote.git
