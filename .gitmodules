@@ -37,3 +37,6 @@
 [submodule "src/Summernote"]
 	path = src/Summernote
 	url = https://github.com/oalt/Summernote.git
+[submodule "src/MDD4All.UI.BlazorComponents"]
+	path = src/MDD4All.UI.BlazorComponents
+	url = https://github.com/oalt/MDD4All.UI.BlazorComponents.git

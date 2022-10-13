@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd Party", "3rd Party", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingComponents.Summernote", "Summernote\BlazingComponents.Summernote.csproj", "{080A8742-BA72-4406-98F5-5FD671E3C221}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.UI.BlazorComponents-dev", "MDD4All.UI.BlazorComponents\src\MDD4All.UI.BlazorComponents\MDD4All.UI.BlazorComponents-dev.csproj", "{067B98DA-DD88-4C7C-AE76-9FE142D5583D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,14 @@ Global
 		{080A8742-BA72-4406-98F5-5FD671E3C221}.Release|Any CPU.Build.0 = Release|Any CPU
 		{080A8742-BA72-4406-98F5-5FD671E3C221}.Release|x86.ActiveCfg = Release|Any CPU
 		{080A8742-BA72-4406-98F5-5FD671E3C221}.Release|x86.Build.0 = Release|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Debug|x86.Build.0 = Debug|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Release|x86.ActiveCfg = Release|Any CPU
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,6 +198,7 @@ Global
 		{93F04962-89C5-46E8-9B07-5AE31B547B32} = {706E5E75-0DF7-4212-851E-F510C2AF306A}
 		{99C18B1C-623C-4275-AA12-10B78030402B} = {CAB6BA1D-8F32-4B2A-A5F6-1B150DDA4347}
 		{080A8742-BA72-4406-98F5-5FD671E3C221} = {99C18B1C-623C-4275-AA12-10B78030402B}
+		{067B98DA-DD88-4C7C-AE76-9FE142D5583D} = {CAB6BA1D-8F32-4B2A-A5F6-1B150DDA4347}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8467594C-EFA8-44E7-A356-1CD4FB28487D}
