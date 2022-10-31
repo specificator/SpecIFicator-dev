@@ -1,0 +1,17 @@
+﻿<h3>TreeTestComponent</h3>
+
+<Tree Nodes="TreeNodeViewModels" 
+      ChildSelector="node => node.Children" 
+      @bind-SelectedNode="selectedNode" 
+      @bind-ExpandedNodes="ExpandedNodes" 
+      HasChildNodes="node => node.Children?.Any() == true" 
+      NodeDisabled="node => node.Disabled">
+    <TitleTemplate><strong>@context.Level</strong> @context.Title</TitleTemplate>
+</Tree>
+
+<p style="margin-top: 2rem">
+    Selected: @selectedNode?.Title<br />
+    Expanded: @string.Join(", ", ExpandedNodes.Select(i => i.Title))<br />
+</p>
+
+

@@ -40,3 +40,6 @@
 [submodule "src/MDD4All.UI.BlazorComponents"]
 	path = src/MDD4All.UI.BlazorComponents
 	url = https://github.com/oalt/MDD4All.UI.BlazorComponents.git
+[submodule "src/MDD4All.MongoDB.DataAccess.Generic"]
+	path = src/MDD4All.MongoDB.DataAccess.Generic
+	url = https://github.com/oalt/MDD4All.MongoDB.DataAccess.Generic.git
