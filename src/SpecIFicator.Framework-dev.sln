@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_UI", "3_UI", "{CAB6BA1D-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecIFicator.UI.BlazorComponents-dev", "SpecIFicator.UI.BlazorComponents\src\SpecIFicator.UI.BlazorComponents\SpecIFicator.UI.BlazorComponents-dev.csproj", "{3602A8DA-3C27-4D79-980B-0E48DE45BCBD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1_ViewModels", "3.1_ViewModels", "{759D58D2-528E-4CF9-AAFD-04EB2C8EC9DA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 ViewModels", "3.1 ViewModels", "{759D58D2-528E-4CF9-AAFD-04EB2C8EC9DA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SpecIF.ViewModels-dev", "MDD4All.SpecIF.ViewModels\src\MDD4All.SpecIF.ViewModels\MDD4All.SpecIF.ViewModels-dev.csproj", "{5296FE80-5FA9-48B0-98A4-3E6EB8C2AE2C}"
 EndProject
