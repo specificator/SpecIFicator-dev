@@ -1,4 +1,4 @@
-.page {
+﻿.page {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@ main {
 }
 
 .sidebar {
-    background-color: darkred;
+    background-color: rgb(204,0,0);
 }
 
 .top-row {
