@@ -1,0 +1,41 @@
+name: Dev Integration Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
+    
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Set integration version from current date
+      run: echo "DATE_VERSION=$(date +'%Y.%j')" >> $GITHUB_ENV
+
+    - name: Create version number
+      run: echo "VERSION=$(echo $DATE_VERSION.$GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
+
+    - name: Echo version number
+      run: echo $VERSION
+
+    - name: Restore dependencies
+      run: dotnet restore ./src/${SOLUTION_NAME}
+
+    - name: Build
+      run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${SOLUTION_NAME}
+      
