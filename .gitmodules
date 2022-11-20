@@ -46,3 +46,6 @@
 [submodule "src/MDD4All.UI.DataModels"]
 	path = src/MDD4All.UI.DataModels
 	url = https://github.com/oalt/MDD4All.UI.DataModels.git
+[submodule "src/SpecIFicator.Framework"]
+	path = src/SpecIFicator.Framework
+	url = https://github.com/oalt/SpecIFicator.Framework.git
