@@ -49,3 +49,6 @@
 [submodule "src/SpecIFicator.Framework"]
 	path = src/SpecIFicator.Framework
 	url = https://github.com/oalt/SpecIFicator.Framework.git
+[submodule "src/SpecIFicator.Apps.BlazorWpf"]
+	path = src/SpecIFicator.Apps.BlazorWpf
+	url = https://github.com/oalt/SpecIFicator.Apps.BlazorWpf.git
