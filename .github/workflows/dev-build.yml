@@ -44,5 +44,5 @@ jobs:
       run: dotnet restore ./src/${{env.SOLUTION_NAME}}
 
     - name: Build
-      run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}}
+      run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
       
