@@ -52,3 +52,9 @@
 [submodule "src/SpecIFicator.Apps.BlazorWpf"]
 	path = src/SpecIFicator.Apps.BlazorWpf
 	url = https://github.com/oalt/SpecIFicator.Apps.BlazorWpf.git
+[submodule "src/MDD4All.SpecIF.DataProvider.EA"]
+	path = src/MDD4All.SpecIF.DataProvider.EA
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.EA.git
+[submodule "src/MDD4All.SpecIF.DataProvider.WebAPI"]
+	path = src/MDD4All.SpecIF.DataProvider.WebAPI
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.WebAPI.git
