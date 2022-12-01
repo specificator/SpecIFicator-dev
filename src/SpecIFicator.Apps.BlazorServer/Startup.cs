@@ -1,6 +1,7 @@
 ﻿using MDD4All.SpecIF.DataProvider.Contracts;
 using MDD4All.SpecIF.DataProvider.Contracts.DataStreams;
 using MDD4All.SpecIF.DataProvider.MockupDataStream;
+using MDD4All.UI.BlazorComponents.Services;
 using SpecIFicator.Framework.Configuration;
 using SpecIFicator.Framework.PluginManagement;
 using System.Globalization;
@@ -63,6 +64,8 @@ namespace SpecIFicator.Apps.BlazorServer
             {
                 return new MockupDataSubscriber();
             });
+
+            services.AddScoped<ClipboardDataProvider>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
