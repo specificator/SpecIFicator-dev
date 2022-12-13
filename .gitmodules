@@ -58,3 +58,9 @@
 [submodule "src/MDD4All.SpecIF.DataProvider.WebAPI"]
 	path = src/MDD4All.SpecIF.DataProvider.WebAPI
 	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.WebAPI.git
+[submodule "src/MDD4All.FileAccess.Contracts"]
+	path = src/MDD4All.FileAccess.Contracts
+	url = https://github.com/oalt/MDD4All.FileAccess.Contracts.git
+[submodule "src/MDD4All.FileAccess.WPF"]
+	path = src/MDD4All.FileAccess.WPF
+	url = https://github.com/oalt/MDD4All.FileAccess.WPF.git
