@@ -73,3 +73,6 @@
 [submodule "src/VisNetwork.Blazor.Models"]
 	path = src/VisNetwork.Blazor.Models
 	url = https://github.com/oalt/VisNetwork.Blazor.Models.git
+[submodule "src/SplitJs.Blazor"]
+	path = src/SplitJs.Blazor
+	url = https://github.com/oalt/SplitJs.Blazor.git
