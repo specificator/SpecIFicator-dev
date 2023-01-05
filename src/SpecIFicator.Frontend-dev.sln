@@ -86,6 +86,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisNetwork.Blazor.Models-de
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisNetwork.Blazor-dev", "VisNetwork.Blazor\src\VisNetwork.Blazor\VisNetwork.Blazor-dev.csproj", "{68B9BB4E-0DBA-483E-829C-C0F6ADE7FD78}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplitJs.Blazor", "SplitJs.Blazor\src\SplitJs.Blazor\SplitJs.Blazor.csproj", "{F096C702-832D-4A13-9414-9232794756FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -306,6 +308,14 @@ Global
 		{68B9BB4E-0DBA-483E-829C-C0F6ADE7FD78}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68B9BB4E-0DBA-483E-829C-C0F6ADE7FD78}.Release|x86.ActiveCfg = Release|Any CPU
 		{68B9BB4E-0DBA-483E-829C-C0F6ADE7FD78}.Release|x86.Build.0 = Release|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Debug|x86.Build.0 = Debug|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Release|x86.ActiveCfg = Release|Any CPU
+		{F096C702-832D-4A13-9414-9232794756FE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -341,6 +351,7 @@ Global
 		{97D7ADF1-EF14-4A69-B7F1-E041D12F70B7} = {ADDC4D12-AA45-4457-87AE-26A3BF5C3A11}
 		{940B4506-1ECE-45E9-88A3-8F216C8B78D7} = {6F28DF68-D50C-43FB-978E-4B24FA1B0BA9}
 		{68B9BB4E-0DBA-483E-829C-C0F6ADE7FD78} = {99C18B1C-623C-4275-AA12-10B78030402B}
+		{F096C702-832D-4A13-9414-9232794756FE} = {99C18B1C-623C-4275-AA12-10B78030402B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8467594C-EFA8-44E7-A356-1CD4FB28487D}
