@@ -76,3 +76,6 @@
 [submodule "src/SplitJs.Blazor"]
 	path = src/SplitJs.Blazor
 	url = https://github.com/oalt/SplitJs.Blazor.git
+[submodule "src/MDD4All.SpecIF.DataProvider.Base"]
+	path = src/MDD4All.SpecIF.DataProvider.Base
+	url = https://github.com/oalt/MDD4All.SpecIF.DataProvider.Base.git
