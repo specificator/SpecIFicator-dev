@@ -1,7 +1,7 @@
 ﻿using MDD4All.SpecIF.DataProvider.Base;
+using MDD4All.SpecIF.DataProvider.Base.DataStreams;
 using MDD4All.SpecIF.DataProvider.Contracts;
 using MDD4All.SpecIF.DataProvider.Contracts.DataStreams;
-using MDD4All.SpecIF.DataProvider.MockupDataStream;
 using MDD4All.UI.BlazorComponents.Services;
 using SpecIFicator.Framework.Configuration;
 using SpecIFicator.Framework.PluginManagement;
@@ -50,9 +50,14 @@ namespace SpecIFicator.Apps.BlazorServer
                 return new SpecIfDataProviderFactory();
             });
 
+            services.AddSingleton<ISpecIfStreamDataSubscriberProvider>(dataSubscriber =>
+            {
+                return new SpecIfStreamDataSubscriberProvider();
+            });
+
             //services.AddScoped<ISpecIfMetadataReader>(dataProvider =>
             //{
-                
+
             //});
 
             //services.AddScoped<ISpecIfMetadataWriter>(dataProvider => specIfDataProviderFactory.SpecIfMetadataWriter);
@@ -60,11 +65,6 @@ namespace SpecIFicator.Apps.BlazorServer
             //services.AddScoped<ISpecIfDataReader>(dataProvider => specIfDataProviderFactory.SpecIfDataReader);
 
             //services.AddScoped<ISpecIfDataWriter>(dataProvider => specIfDataProviderFactory.SpecIfDataWriter);
-
-            services.AddScoped<ISpecIfDataSubscriber>(dataSubscriber =>
-            {
-                return new MockupDataSubscriber();
-            });
 
             services.AddScoped<ClipboardDataProvider>();
         }
