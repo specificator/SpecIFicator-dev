@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecIFicator.Framework-dev"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{78539CD2-ECEE-4F3C-8BAA-3E0EF9974E37}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\dev-build.yml = ..\.github\workflows\dev-build.yml
+		..\.github\workflows\frontend-dev-build.yml = ..\.github\workflows\frontend-dev-build.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Apps", "0_Apps", "{34ED675E-7902-4B54-8DF5-EBA694395D15}"
