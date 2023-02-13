@@ -1,4 +1,4 @@
-name: Dev Integration Build
+name: Frontend Development Integration Build
 
 on:
   push:
