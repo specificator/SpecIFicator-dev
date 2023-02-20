@@ -1,0 +1,79 @@
+name: Build frontend snapshot
+
+on:
+  workflow_dispatch:
+     
+jobs:
+  build:
+
+    runs-on: windows-2019
+    env:
+      SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
+      DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\bin\Release\net6.0\publish\
+      DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
+      CSS_TARGET_DIRECTORY: .\output\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
+      DEFAULT_PLUGIN_PATH: .\output\SpecIFicator.DefaultPlugin\
+      
+
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        token: ${{secrets.ACCESS_TOKEN}}
+        submodules: true
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Set version number from date using PS
+      uses: Amadevus/pwsh-script@v2
+      id: date-version
+      with:
+        script: |
+            ([datetime]::now).tostring("yyyy.M.d")
+
+    - name: Set version variable from date and build number
+      env: 
+        DATE_VERSION: ${{steps.date-version.outputs.result}}
+      run: echo ("VERSION=" + $env:DATE_VERSION + "." + $env:GITHUB_RUN_NUMBER) >> $env:GITHUB_ENV
+
+    - name: Echo version number
+      run: echo $env:VERSION
+
+    - name: Publish
+      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
+
+    - name: Create output directories
+      run: |
+        mkdir output
+        mkdir .\output\SpecIFicator
+        mkdir ${{env.DEFAULT_PLUGIN_PATH}}
+        mkdir dist
+
+    - name: Copy SpecIFicator app files
+      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* .\output\SpecIFicator\
+
+    - name: Copy SpecIFicator.DefaultPlugin files
+      run: |
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
+        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
+
+    - name: Zip files
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        directory: output\
+        filename: SpecIFicator_with_Plugin_${{env.VERSION}}.zip
+
+    - name: Copy zip file to dist directory
+      run: xcopy /y .\output\SpecIFicator_with_Plugin_${{env.VERSION}}.zip .\dist\
+
+    - name: Upload artifact(s)
+      uses: actions/upload-artifact@v2
+      with:
+        name: SpecIFicator_with_Plugin_${{env.VERSION}}
+        path: .\dist\*.zip
