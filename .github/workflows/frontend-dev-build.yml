@@ -12,7 +12,12 @@ jobs:
     runs-on: windows-2019
     env:
       SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
-    
+      DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\bin\Release\net6.0\publish\
+      DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
+      CSS_TARGET_DIRECTORY: .\output\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
+      DEFAULT_PLUGIN_PATH: .\output\SpecIFicator.DefaultPlugin\
+      
+
     steps:
     - name: Checkout repository and submodules
       uses: actions/checkout@v2
@@ -45,4 +50,39 @@ jobs:
 
     - name: Build
       run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
-      
+
+    - name: Publish
+      run: dotnet publish dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
+
+    - name: Create output directories
+      run: |
+        mkdir output
+        mkdir .\output\SpecIFicator
+        mkdir ${{env.DEFAULT_PLUGIN_PATH}}
+        mkdir dist
+
+    - name: Copy SpecIFicator app files
+      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* .\output\SpecIFicator\
+
+    - name: Copy SpecIFicator.DefaultPlugin files
+      run: |
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}\de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
+        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}\MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
+
+    - name: Zip files
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        directory: output\
+        filename: SpecIFicator_${{env.VERSION}}_with_Plugin.zip
+
+    - name: Copy zip file to dist directory
+      run: xcopy SpecIFicator_${{env.VERSION}}_with_Plugin.zip ./dist/
+
+    - name: Upload artifact(s)
+      uses: actions/upload-artifact@v2
+      with:
+        name: SpecIFicator_${{env.VERSION}}_with_Plugin.zip
+        path: ./dist/*.zip
