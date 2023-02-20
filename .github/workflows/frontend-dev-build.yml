@@ -52,7 +52,7 @@ jobs:
       run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
 
     - name: Publish
-      run: dotnet publish dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
+      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
 
     - name: Create output directories
       run: |
