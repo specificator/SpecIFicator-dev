@@ -52,7 +52,7 @@ jobs:
     #  run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
 
     - name: Publish
-      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} ./src/${{env.SOLUTION_NAME}}
+      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
 
     - name: Create output directories
       run: |
@@ -68,9 +68,9 @@ jobs:
       run: |
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}\de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
         xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}\MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
 
     - name: Zip files
       uses: thedoctor0/zip-release@0.7.1
