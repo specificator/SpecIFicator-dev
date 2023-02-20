@@ -76,13 +76,13 @@ jobs:
       uses: thedoctor0/zip-release@0.7.1
       with:
         directory: output\
-        filename: SpecIFicator_${{env.VERSION}}_with_Plugin.zip
+        filename: SpecIFicator_with_Plugin_${{env.VERSION}}.zip
 
     - name: Copy zip file to dist directory
-      run: xcopy SpecIFicator_${{env.VERSION}}_with_Plugin.zip ./dist/
+      run: xcopy .\output\SpecIFicator_with_Plugin_${{env.VERSION}}.zip ./dist/
 
     - name: Upload artifact(s)
       uses: actions/upload-artifact@v2
       with:
-        name: SpecIFicator_${{env.VERSION}}_with_Plugin.zip
+        name: SpecIFicator_with_Plugin_${{env.VERSION}}
         path: ./dist/*.zip
