@@ -12,7 +12,8 @@ jobs:
       DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\bin\Release\net6.0\publish\
       DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
       CSS_TARGET_DIRECTORY: .\output\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
-      DEFAULT_PLUGIN_PATH: .\output\SpecIFicator.DefaultPlugin\
+      DEFAULT_SPECIFICATOR_PATH: .\output\framework\SpecIFicator\
+      DEFAULT_PLUGIN_PATH: .\output\plugin\SpecIFicator.DefaultPlugin\
       
 
     steps:
@@ -48,12 +49,11 @@ jobs:
     - name: Create output directories
       run: |
         mkdir output
-        mkdir .\output\SpecIFicator
+        mkdir ${{env.DEFAULT_SPECIFICATOR_PATH}}
         mkdir ${{env.DEFAULT_PLUGIN_PATH}}
-        mkdir dist
 
     - name: Copy SpecIFicator app files
-      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* .\output\SpecIFicator\
+      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* ${{env.DEFAULT_PLUGIN_PATH}}
 
     - name: Copy SpecIFicator.DefaultPlugin files
       run: |
@@ -63,23 +63,14 @@ jobs:
         xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
 
-    #- name: Zip files
-    #  uses: thedoctor0/zip-release@0.7.1
-    #  with:
-    #    directory: output\
-    #    filename: SpecIFicator_with_Plugin_${{env.VERSION}}.zip
-
-    #- name: Copy zip file to dist directory
-    #  run: xcopy /y .\output\SpecIFicator_with_Plugin_${{env.VERSION}}.zip .\dist\
-
     - name: Upload SpecIFicator artifact
       uses: actions/upload-artifact@v3
       with:
         name: SpecIFicator_${{env.VERSION}}
-        path: output\SpecIFicator\
+        path: output\framework\
 
     - name: Upload SpecIFicator.DefaultPlugin artifact
       uses: actions/upload-artifact@v3
       with:
         name: SpecIFicator.DefaultPlugin_${{env.VERSION}}
-        path: output\SpecIFicator.DefaultPlugin\
+        path: output\plugin\
