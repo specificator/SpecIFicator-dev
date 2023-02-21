@@ -12,7 +12,7 @@ jobs:
       DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\bin\Release\net6.0\publish\
       DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
       CSS_TARGET_DIRECTORY: .\output\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
-      DEFAULT_SPECIFICATOR_PATH: .\output\framework\SpecIFicator\
+      SPECIFICATOR_PATH: .\output\framework\SpecIFicator\
       DEFAULT_PLUGIN_PATH: .\output\plugin\SpecIFicator.DefaultPlugin\
       
 
@@ -49,11 +49,11 @@ jobs:
     - name: Create output directories
       run: |
         mkdir output
-        mkdir ${{env.DEFAULT_SPECIFICATOR_PATH}}
+        mkdir ${{env.SPECIFICATOR_PATH}}
         mkdir ${{env.DEFAULT_PLUGIN_PATH}}
 
     - name: Copy SpecIFicator app files
-      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* ${{env.DEFAULT_PLUGIN_PATH}}
+      run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* ${{env.SPECIFICATOR_PATH}}
 
     - name: Copy SpecIFicator.DefaultPlugin files
       run: |
