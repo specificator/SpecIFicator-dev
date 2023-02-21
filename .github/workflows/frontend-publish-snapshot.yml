@@ -51,9 +51,25 @@ jobs:
         mkdir output
         mkdir ${{env.SPECIFICATOR_PATH}}
         mkdir ${{env.DEFAULT_PLUGIN_PATH}}
+        mkdir artifacts
 
     - name: Copy SpecIFicator app files
       run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* ${{env.SPECIFICATOR_PATH}}
+
+    - name: Zip SpecIFicator files
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        directory: output\framework\
+        filename: SpecIFicator_${{env.VERSION}}.zip
+
+    - name: Copy SpecIFicator zip file to dist directory
+      run: xcopy /y .\output\SpecIFicator_${{env.VERSION}}.zip .\artifacts\
+
+    - name: Upload SpecIFicator artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: SpecIFicator_${{env.VERSION}}
+        path: artifacts\*.zip
 
     - name: Copy SpecIFicator.DefaultPlugin files
       run: |
@@ -62,12 +78,6 @@ jobs:
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
         xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
-
-    - name: Upload SpecIFicator artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: SpecIFicator_${{env.VERSION}}
-        path: output\framework\
 
     - name: Upload SpecIFicator.DefaultPlugin artifact
       uses: actions/upload-artifact@v3
