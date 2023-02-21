@@ -63,17 +63,23 @@ jobs:
         xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
 
-    - name: Zip files
-      uses: thedoctor0/zip-release@0.7.1
-      with:
-        directory: output\
-        filename: SpecIFicator_with_Plugin_${{env.VERSION}}.zip
+    #- name: Zip files
+    #  uses: thedoctor0/zip-release@0.7.1
+    #  with:
+    #    directory: output\
+    #    filename: SpecIFicator_with_Plugin_${{env.VERSION}}.zip
 
-    - name: Copy zip file to dist directory
-      run: xcopy /y .\output\SpecIFicator_with_Plugin_${{env.VERSION}}.zip .\dist\
+    #- name: Copy zip file to dist directory
+    #  run: xcopy /y .\output\SpecIFicator_with_Plugin_${{env.VERSION}}.zip .\dist\
 
-    - name: Upload artifact(s)
-      uses: actions/upload-artifact@v2
+    - name: Upload SpecIFicator artifact
+      uses: actions/upload-artifact@v3
       with:
-        name: SpecIFicator_with_Plugin_${{env.VERSION}}
-        path: .\dist\*.zip
+        name: SpecIFicator_${{env.VERSION}}
+        path: output\SpecIFicator\
+
+    - name: Upload SpecIFicator.DefaultPlugin artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: SpecIFicator.DefaultPlugin_${{env.VERSION}}
+        path: output\SpecIFicator.DefaultPlugin\
