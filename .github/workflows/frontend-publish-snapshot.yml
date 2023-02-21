@@ -11,7 +11,7 @@ jobs:
       SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
       DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\bin\Release\net6.0\publish\
       DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
-      CSS_TARGET_DIRECTORY: .\output\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
+      CSS_TARGET_DIRECTORY: .\output\framework\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
       SPECIFICATOR_PATH: .\output\framework\SpecIFicator\
       DEFAULT_PLUGIN_PATH: .\output\plugin\SpecIFicator.DefaultPlugin\
       
@@ -56,6 +56,14 @@ jobs:
     - name: Copy SpecIFicator app files
       run: xcopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\*.* ${{env.SPECIFICATOR_PATH}}
 
+    - name: Copy SpecIFicator.DefaultPlugin files
+      run: |
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
+        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
+
     - name: Zip SpecIFicator files
       uses: thedoctor0/zip-release@0.7.1
       with:
@@ -70,14 +78,6 @@ jobs:
       with:
         name: SpecIFicator_${{env.VERSION}}
         path: artifacts\*.zip
-
-    - name: Copy SpecIFicator.DefaultPlugin files
-      run: |
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
-        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
-        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
 
     - name: Upload SpecIFicator.DefaultPlugin artifact
       uses: actions/upload-artifact@v3
