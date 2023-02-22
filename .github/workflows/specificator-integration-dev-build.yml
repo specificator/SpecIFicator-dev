@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     env:
       BACKEND_SOLUTION_NAME: SpecIF_Backend-dev.sln 
       FRONTEND_SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
@@ -26,24 +26,30 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Set integration version from current date
-      run: echo "DATE_VERSION=$(date +'%Y.%j')" >> $GITHUB_ENV
 
-    - name: Create version number
-      run: echo "VERSION=$(echo $DATE_VERSION.$GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
+    - name: Set version number from date using PS
+      uses: Amadevus/pwsh-script@v2
+      id: date-version
+      with:
+        script: |
+            ([datetime]::now).tostring("yyyy.M.d")
+
+    - name: Set version variable from date and build number
+      env: 
+        DATE_VERSION: ${{steps.date-version.outputs.result}}
+      run: echo ("VERSION=" + $env:DATE_VERSION + "." + $env:GITHUB_RUN_NUMBER) >> $env:GITHUB_ENV
 
     - name: Echo version number
-      run: echo $VERSION
+      run: echo $env:VERSION
 
     - name: Restore backend dependencies
-      run: dotnet restore ./src/${BACKEND_SOLUTION_NAME}
+      run: dotnet restore ./src/${{env.BACKEND_SOLUTION_NAME}}
 
     - name: Restore frontend dependencies
-      run: dotnet restore ./src/${FRONTEND_SOLUTION_NAME}
+      run: dotnet restore ./src/${{env.FRONTEND_SOLUTION_NAME}}
 
     - name: Build backend
-      run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${BACKEND_SOLUTION_NAME}
+      run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.BACKEND_SOLUTION_NAME}}
 
     - name: Build frontend
-      run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${FRONTEND_SOLUTION_NAME}
-      
+      run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.FRONTEND_SOLUTION_NAME}}
