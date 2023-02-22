@@ -1,0 +1,49 @@
+name: SpecIFictor Development Integration Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      BACKEND_SOLUTION_NAME: SpecIF_Backend-dev.sln 
+      FRONTEND_SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
+
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        token: ${{secrets.ACCESS_TOKEN}}
+        submodules: true
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Set integration version from current date
+      run: echo "DATE_VERSION=$(date +'%Y.%j')" >> $GITHUB_ENV
+
+    - name: Create version number
+      run: echo "VERSION=$(echo $DATE_VERSION.$GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
+
+    - name: Echo version number
+      run: echo $VERSION
+
+    - name: Restore backend dependencies
+      run: dotnet restore ./src/${BACKEND_SOLUTION_NAME}
+
+    - name: Restore frontend dependencies
+      run: dotnet restore ./src/${FRONTEND_SOLUTION_NAME}
+
+    - name: Build backend
+      run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${BACKEND_SOLUTION_NAME}
+
+    - name: Build frontend
+      run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${FRONTEND_SOLUTION_NAME}
+      
