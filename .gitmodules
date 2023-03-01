@@ -136,3 +136,9 @@
 [submodule "src/MDD4All.SpecIF.Generators.Terms"]
 	path = src/MDD4All.SpecIF.Generators.Terms
 	url = https://github.com/oalt/MDD4All.SpecIF.Generators.Terms.git
+[submodule "src/MDD4All.SpecIF.DomainModels.Base"]
+	path = src/MDD4All.SpecIF.DomainModels.Base
+	url = https://github.com/oalt/MDD4All.SpecIF.DomainModels.Base.git
+[submodule "src/MDD4All.SpecIF.Generators.DomainModels"]
+	path = src/MDD4All.SpecIF.Generators.DomainModels
+	url = https://github.com/oalt/MDD4All.SpecIF.Generators.DomainModels.git
