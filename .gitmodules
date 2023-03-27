@@ -100,9 +100,6 @@
 [submodule "src/MDD4All.Kafka.DataAccess"]
 	path = src/MDD4All.Kafka.DataAccess
 	url = https://github.com/oalt/MDD4All.Kafka.DataAccess.git
-[submodule "src/MDD4All.SpecIF.DataAccess.Jira"]
-	path = src/MDD4All.SpecIF.DataAccess.Jira
-	url = https://github.com/oalt/MDD4All.SpecIF.DataAccess.Jira.git
 [submodule "src/MDD4All.Jira.DataModels"]
 	path = src/MDD4All.Jira.DataModels
 	url = https://github.com/oalt/MDD4All.Jira.DataModels.git
@@ -142,3 +139,6 @@
 [submodule "src/MDD4All.SpecIF.Generators.DomainModels"]
 	path = src/MDD4All.SpecIF.Generators.DomainModels
 	url = https://github.com/oalt/MDD4All.SpecIF.Generators.DomainModels.git
+[submodule "src/MDD4All.SpecIF.Converters.Jira"]
+	path = src/MDD4All.SpecIF.Converters.Jira
+	url = https://github.com/oalt/MDD4All.SpecIF.Converters.Jira.git
