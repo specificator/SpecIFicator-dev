@@ -142,3 +142,9 @@
 [submodule "src/MDD4All.SpecIF.Converters.Jira"]
 	path = src/MDD4All.SpecIF.Converters.Jira
 	url = https://github.com/oalt/MDD4All.SpecIF.Converters.Jira.git
+[submodule "src/MDD4All.SpecIF.Apps.EaPlugin"]
+	path = src/MDD4All.SpecIF.Apps.EaPlugin
+	url = https://github.com/oalt/MDD4All.SpecIF.Apps.EaPlugin.git
+[submodule "src/MDD4All.Configuration.Views"]
+	path = src/MDD4All.Configuration.Views
+	url = https://github.com/oalt/MDD4All.Configuration.Views.git
