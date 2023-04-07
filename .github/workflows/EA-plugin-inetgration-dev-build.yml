@@ -81,9 +81,9 @@ jobs:
 
     - name: Copy results
       run: |
-        xcopy ".\src\${{env.SOLUTION_NAME}}-dev\bin\Release\*.dll" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
-        xcopy ".\src\${{env.SOLUTION_NAME}}-dev\bin\Release\*.config" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
-        xcopy ".\src\${{env.SOLUTION_NAME}}\_Registry\*.*" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
+        xcopy ".\src\${{env.SOLUTION_NAME}}\src\${{env.SOLUTION_NAME}}\bin\Release\*.dll" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
+        xcopy ".\src\${{env.SOLUTION_NAME}}\src\${{env.SOLUTION_NAME}}\bin\Release\*.config" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
+        xcopy ".\src\${{env.SOLUTION_NAME}}\src\${{env.SOLUTION_NAME}}\_Registry\*.*" .\Output\${{env.SOLUTION_NAME}}_${{env.VERSION}}\
 
     - name: Upload artifact(s)
       uses: actions/upload-artifact@v2
