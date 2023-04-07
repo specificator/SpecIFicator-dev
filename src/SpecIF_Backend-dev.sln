@@ -21,9 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1126CA30
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{96D36F63-7E94-4A54-83C3-1A3C5BB63D7E}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\backend-dev-build.yml = ..\.github\workflows\backend-dev-build.yml
 		..\.github\workflows\backend-docker-build.yml = ..\.github\workflows\backend-docker-build.yml
 		..\Dockerfile = ..\Dockerfile
+		..\.github\workflows\specificator-integration-dev-build.yml = ..\.github\workflows\specificator-integration-dev-build.yml
 		SpecIF_Backend.sln.licenseheader = SpecIF_Backend.sln.licenseheader
 		..\SpecIF_Backend_Docker_Image_Readme.md = ..\SpecIF_Backend_Docker_Image_Readme.md
 	EndProjectSection
@@ -37,8 +37,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_ViewModels", "3_ViewModels", "{958B5E9B-FC18-49A1-B52A-0C582AACD86F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_DataIntegrators", "4_DataIntegrators", "{6625B47F-2449-4B53-9F55-D45C813DF411}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SVG.DataModels", "MDD4All.SVG.DataModels\src\MDD4All.SVG.DataModels\MDD4All.SVG.DataModels.csproj", "{8695D734-D3F3-44EE-A061-9B4704FE3724}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SpecIF.DataModels.Manipulation-dev", "MDD4All.SpecIF.DataModels.Manipulation\src\MDD4All.SpecIF.DataModels.Manipulation\MDD4All.SpecIF.DataModels.Manipulation-dev.csproj", "{77EFC2A2-5CEC-4286-ABB4-A9488FC3A7CE}"
 EndProject
@@ -114,6 +112,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SpecIF.Generators.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SpecIF.Converters.Jira-dev", "MDD4All.SpecIF.Converters.Jira\src\MDD4All.SpecIF.Converters.Jira\MDD4All.SpecIF.Converters.Jira-dev.csproj", "{33FD662E-AA3A-492C-A44E-794DB3A15944}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.SVG.DataModels-dev", "MDD4All.SVG.DataModels\src\MDD4All.SVG.DataModels\MDD4All.SVG.DataModels-dev.csproj", "{7A0860A8-CF12-42A9-AA51-BB64CD907498}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,14 +122,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Debug|x86.Build.0 = Debug|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Release|x86.ActiveCfg = Release|Any CPU
-		{8695D734-D3F3-44EE-A061-9B4704FE3724}.Release|x86.Build.0 = Release|Any CPU
 		{77EFC2A2-5CEC-4286-ABB4-A9488FC3A7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77EFC2A2-5CEC-4286-ABB4-A9488FC3A7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77EFC2A2-5CEC-4286-ABB4-A9488FC3A7CE}.Debug|x86.ActiveCfg = Debug|x86
@@ -418,6 +410,14 @@ Global
 		{33FD662E-AA3A-492C-A44E-794DB3A15944}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33FD662E-AA3A-492C-A44E-794DB3A15944}.Release|x86.ActiveCfg = Release|Any CPU
 		{33FD662E-AA3A-492C-A44E-794DB3A15944}.Release|x86.Build.0 = Release|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Debug|x86.Build.0 = Debug|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -428,7 +428,6 @@ Global
 		{B5190C56-9655-4984-8866-7259FD051766} = {510CDA2A-99A0-4003-9F18-D255DAC52333}
 		{1126CA30-A652-4B5A-B162-42B9212B929D} = {B5974E23-6F5A-4D50-AE40-B5A8F74F950C}
 		{18A03F70-C988-4C26-92AA-A4CD1F9101C8} = {7D0FA414-B3D2-4264-A91F-EAA551CA5A5D}
-		{8695D734-D3F3-44EE-A061-9B4704FE3724} = {B5974E23-6F5A-4D50-AE40-B5A8F74F950C}
 		{77EFC2A2-5CEC-4286-ABB4-A9488FC3A7CE} = {B5974E23-6F5A-4D50-AE40-B5A8F74F950C}
 		{95D8FEB4-5455-4104-B2A8-0B9487A489CD} = {7DC60D00-FA4B-4C26-B32F-25D27611923A}
 		{6E28A28C-D8D3-4870-98CF-4A3A03F6973C} = {7DC60D00-FA4B-4C26-B32F-25D27611923A}
@@ -465,6 +464,7 @@ Global
 		{582BF540-B5F1-4D60-9509-A272B0B86C42} = {18A03F70-C988-4C26-92AA-A4CD1F9101C8}
 		{A7095702-2BFF-425C-85F8-D156C36F88DA} = {EAB5FEEC-9DF7-48C7-9F0D-6C920E716F88}
 		{33FD662E-AA3A-492C-A44E-794DB3A15944} = {7D0FA414-B3D2-4264-A91F-EAA551CA5A5D}
+		{7A0860A8-CF12-42A9-AA51-BB64CD907498} = {B5974E23-6F5A-4D50-AE40-B5A8F74F950C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8F9327E-C222-4E00-A62F-20527B230190}
