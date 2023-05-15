@@ -11,11 +11,9 @@ jobs:
       SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
       DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\SpecIFicator.DefaultPlugin\bin\Release\net6.0\publish\
       DEFAULT_PLUGIN_CSS_BUNDLE_FILE: .\src\SpecIFicator.DefaultPlugin\src\SpecIFicator.DefaultPlugin\obj\Release\net6.0\scopedcss\projectbundle\SpecIFicator.DefaultPlugin.bundle.scp.css
-      CSS_TARGET_DIRECTORY: .\output\framework\SpecIFicator\wwwroot\_content\SpecIFicator.Framework\css\pluginStyles\
       SPECIFICATOR_PATH: .\output\framework\SpecIFicator\
       DEFAULT_PLUGIN_PATH: .\output\plugin\SpecIFicator.DefaultPlugin\
       
-
     steps:
     - name: Checkout repository and submodules
       uses: actions/checkout@v3
@@ -46,9 +44,6 @@ jobs:
     - name: Publish
       run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
 
-#    - name: Publish plugin
-#      run: dotnet publish -p:PublishProfile=FolderProfile -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
-
     - name: Create output directories
       run: |
         mkdir output
@@ -66,8 +61,18 @@ jobs:
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicator.DefaultPlugin.* ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}SpecIFicatorPlugin.json ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}de\*.resources.dll ${{env.DEFAULT_PLUGIN_PATH}}\de\
-        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.CSS_TARGET_DIRECTORY}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_CSS_BUNDLE_FILE}} ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.File.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MongoDB.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}DnsClient.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.MongoDB.DataAccess.Generic.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MongoDB.Driver.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MongoDB.Driver.Core.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MongoDB.Libmongocrypt.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}Interop.EA.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.EA.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.BlazingComponents.Summernote.dll ${{env.DEFAULT_PLUGIN_PATH}}
 
     - name: Zip SpecIFicator files
       uses: thedoctor0/zip-release@0.7.1
