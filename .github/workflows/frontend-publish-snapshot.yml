@@ -54,7 +54,7 @@ jobs:
         mkdir artifacts
 
     - name: Copy SpecIFicator app files
-      run: robocopy /E /y .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\ ${{env.SPECIFICATOR_PATH}}
+      run: robocopy /E .\src\SpecIFicator.Apps.BlazorWpf\src\SpecIFicator.Apps.BlazorWPF\bin\Release\net6.0-windows\publish\win-x86\ ${{env.SPECIFICATOR_PATH}}
 
     - name: Copy SpecIFicator.DefaultPlugin files
       run: |
