@@ -148,3 +148,6 @@
 [submodule "src/MDD4All.Configuration.Views"]
 	path = src/MDD4All.Configuration.Views
 	url = https://github.com/oalt/MDD4All.Configuration.Views.git
+[submodule "src/MDD4All.SpecIF.ViewModels.Testing"]
+	path = src/MDD4All.SpecIF.ViewModels.Testing
+	url = https://github.com/oalt/MDD4All.SpecIF.ViewModels.Testing.git
