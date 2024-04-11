@@ -65,6 +65,7 @@ jobs:
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MockupDataStream.dll ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.File.dll ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.MongoDB.dll ${{env.DEFAULT_PLUGIN_PATH}}
+        xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.SpecIF.DataProvider.WebAPI.dll ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}DnsClient.dll ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MDD4All.MongoDB.DataAccess.Generic.dll ${{env.DEFAULT_PLUGIN_PATH}}
         xcopy /y ${{env.DEFAULT_PLUGIN_PUBLISH_DIRECTORY}}MongoDB.Driver.dll ${{env.DEFAULT_PLUGIN_PATH}}
