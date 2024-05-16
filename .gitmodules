@@ -154,3 +154,6 @@
 [submodule "src/MDD4All.EnterpriseArchitect.Manipulations"]
 	path = src/MDD4All.EnterpriseArchitect.Manipulations
 	url = https://github.com/oalt/MDD4All.EnterpriseArchitect.Manipulations.git
+[submodule "src/MDD4All.EnterpriseArchitect.Logging"]
+	path = src/MDD4All.EnterpriseArchitect.Logging
+	url = https://github.com/oalt/MDD4All.EnterpriseArchitect.Logging.git

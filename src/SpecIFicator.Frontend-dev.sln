@@ -97,6 +97,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8_EnterpriseArchitect", "8_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.EnterpriseArchitect.Manipulations-dev", "MDD4All.EnterpriseArchitect.Manipulations\src\MDD4All.EA.Manipulations\MDD4All.EnterpriseArchitect.Manipulations-dev.csproj", "{0D447904-AC2F-476D-A909-322FCDD47CD5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.EnterpriseArchitect.Logging-dev", "MDD4All.EnterpriseArchitect.Logging\src\MDD4All.EnterpriseArchitect.Logging\MDD4All.EnterpriseArchitect.Logging-dev.csproj", "{A1338842-E866-43A8-ACBC-F1D262D1BF9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -353,6 +355,14 @@ Global
 		{0D447904-AC2F-476D-A909-322FCDD47CD5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D447904-AC2F-476D-A909-322FCDD47CD5}.Release|x86.ActiveCfg = Release|Any CPU
 		{0D447904-AC2F-476D-A909-322FCDD47CD5}.Release|x86.Build.0 = Release|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Debug|x86.Build.0 = Debug|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Release|x86.ActiveCfg = Release|Any CPU
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -392,6 +402,7 @@ Global
 		{1298FCB9-431B-4A59-BE0F-67D16654B459} = {6F28DF68-D50C-43FB-978E-4B24FA1B0BA9}
 		{F1857D6B-CB18-4111-BCD0-81061EEB416A} = {6F28DF68-D50C-43FB-978E-4B24FA1B0BA9}
 		{0D447904-AC2F-476D-A909-322FCDD47CD5} = {8D120CF3-9524-4360-8F7B-74776654B620}
+		{A1338842-E866-43A8-ACBC-F1D262D1BF9B} = {8D120CF3-9524-4360-8F7B-74776654B620}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8467594C-EFA8-44E7-A356-1CD4FB28487D}
