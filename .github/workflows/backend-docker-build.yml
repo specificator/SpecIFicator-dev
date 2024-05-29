@@ -7,6 +7,12 @@ jobs:
   publish_docker:
 
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+    
     env:
       REGISTRY: ghcr.io
       SOLUTION_NAME: SpecIF_Backend-dev.sln 
@@ -65,8 +71,3 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-    
-     
-    
-      
-      
