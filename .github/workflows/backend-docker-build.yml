@@ -10,7 +10,7 @@ jobs:
     env:
       REGISTRY: ghcr.io
       SOLUTION_NAME: SpecIF_Backend-dev.sln 
-      DOCKER_IMAGE_NAME: oalt/specif_backend 
+      DOCKER_IMAGE_NAME: specificator/specif_backend 
       
     steps:      
     - name: Checkout repository and submodules
