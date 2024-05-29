@@ -48,7 +48,7 @@ jobs:
       with:
           images: ${{ env.REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.VERSION }}
           tags: |
-            type=semver,pattern=${{ env.VERSION }}
+            type=semver,pattern={{version}},value=${{ env.VERSION }}
 
     - name: Build and push Docker image
       id: push
