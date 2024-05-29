@@ -8,6 +8,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
+      REGISTRY: ghcr.io
       SOLUTION_NAME: SpecIF_Backend-dev.sln 
       DOCKER_IMAGE_NAME: oalt/specif_backend 
       
@@ -30,25 +31,39 @@ jobs:
 
     - name: Echo version number
       run: echo $VERSION
-
-#    - name: Restore dependencies
-#      run: dotnet restore ./src/${SOLUTION_NAME}
-
-#   - name: Build
-#     run: dotnet build --no-restore -c Release /p:Version=${VERSION} ./src/${SOLUTION_NAME}
       
     - name: Publish
       run: dotnet publish -c Release /p:Version=${VERSION} --runtime linux-x64 ./src/${SOLUTION_NAME}
       
-    - name: build Docker
-      run: docker build -t ghcr.io/${DOCKER_IMAGE_NAME}:$VERSION .
-      
     - name: login Docker
-      # This is where you will update the personal access token to GITHUB_TOKEN
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-        
-    - name: push Docker
-      run: docker push ghcr.io/${DOCKER_IMAGE_NAME}:$VERSION    
+      uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+      with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+      with:
+          images: ${{ env.REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:$VERSION
+
+    - name: Build and push Docker image
+      id: push
+      uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+      with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+    - name: Generate artifact attestation
+      uses: actions/attest-build-provenance@v1
+      with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:$VERSION
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
+    
      
     
       
