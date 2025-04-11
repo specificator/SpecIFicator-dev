@@ -163,3 +163,15 @@
 [submodule "src/MDD4All.EAFacade.DataAccess.Cached"]
 	path = src/MDD4All.EAFacade.DataAccess.Cached
 	url = https://github.com/oalt/MDD4All.EAFacade.DataAccess.Cached.git
+[submodule "src/MDD4All.SpecIF.DataModels.DiagramMetadata"]
+	path = src/MDD4All.SpecIF.DataModels.DiagramMetadata
+	url = https://github.com/oalt/MDD4All.SpecIF.DataModels.DiagramMetadata.git
+[submodule "src/SpecIFicator.DiagramEditorPlugin"]
+	path = src/SpecIFicator.DiagramEditorPlugin
+	url = https://github.com/specificator/SpecIFicator.DiagramEditorPlugin.git
+[submodule "src/MDD4All.Xml.DataAccess"]
+	path = src/MDD4All.Xml.DataAccess
+	url = https://github.com/oalt/MDD4All.Xml.DataAccess.git
+[submodule "src/MDD4All.Text.DataModels"]
+	path = src/MDD4All.Text.DataModels
+	url = https://github.com/oalt/MDD4All.Text.DataModels.git
