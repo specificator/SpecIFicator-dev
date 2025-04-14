@@ -175,3 +175,6 @@
 [submodule "src/MDD4All.Text.DataModels"]
 	path = src/MDD4All.Text.DataModels
 	url = https://github.com/oalt/MDD4All.Text.DataModels.git
+[submodule "src/SpecIFicator.Plugins.BlazorComponents"]
+	path = src/SpecIFicator.Plugins.BlazorComponents
+	url = https://github.com/specificator/SpecIFicator.Plugins.BlazorComponents.git
