@@ -181,3 +181,6 @@
 [submodule "src/MDD4All.SVG.Conversion"]
 	path = src/MDD4All.SVG.Conversion
 	url = https://github.com/oalt/MDD4All.SVG.Conversion.git
+[submodule "src/SpecIFicator.FeatureModelingPlugin"]
+	path = src/SpecIFicator.FeatureModelingPlugin
+	url = https://github.com/specificator/SpecIFicator.FeatureModelingPlugin.git
