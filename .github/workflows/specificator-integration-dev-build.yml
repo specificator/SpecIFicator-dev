@@ -11,7 +11,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-2022
     env:
       BACKEND_SOLUTION_NAME: SpecIF_Backend-dev.sln 
       FRONTEND_SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
