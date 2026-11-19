@@ -6,7 +6,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-latest
     env:
       SOLUTION_NAME: SpecIFicator.Frontend-dev.sln
       DEFAULT_PLUGIN_PUBLISH_DIRECTORY: .\src\SpecIFicator.DefaultPlugin\src\SpecIFicator.DefaultPlugin\bin\Release\net6.0\publish\
